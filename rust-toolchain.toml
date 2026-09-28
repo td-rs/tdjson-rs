@@ -1,0 +1,4 @@
+# Mirrors the td-rs pin (rust-toolchain.toml there): the compiler that builds
+# the td-rs sources into this extension. Bump both together.
+[toolchain]
+channel = "1.95"

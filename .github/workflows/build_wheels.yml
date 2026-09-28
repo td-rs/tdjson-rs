@@ -1,0 +1,127 @@
+# Build and publish wheels for every platform:
+# PyO3/maturin-action replaces cibuildwheel + the per-OS CMake TDLib builds — the
+# td-rs crates (with their vendored SQLCipher/OpenSSL) compile from the pinned
+# Cargo git dependency on every platform, so there are no TDLib, vcpkg, or
+# OpenSSL-from-source steps here.
+#
+# Publishing uses PyPI Trusted Publishing (OIDC, no stored token). Register it once
+# on pypi.org → account → Publishing: PyPI project `tdjson-rs`, owner `td-rs`,
+# repository `tdjson-rs`, workflow `build_wheels.yml`, environment `pypi`.
+# The repository must be public for the publish job to run.
+name: Build and Publish Wheels
+
+on: [workflow_dispatch]
+
+permissions: {}
+
+jobs:
+  linux-build:
+    strategy:
+      matrix:
+        include:
+          - { runner: ubuntu-latest, target: x86_64 }
+          - { runner: ubuntu-24.04-arm, target: aarch64 }
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+
+      - name: Build wheels
+        uses: PyO3/maturin-action@v1
+        with:
+          target: ${{ matrix.target }}
+          args: --release --out dist --find-interpreter
+          manylinux: "2_28"
+          # perl + make feed the vendored OpenSSL/SQLCipher inside td-rs (cc ships in the image)
+          before-script-linux: |
+            yum install -y perl-core make || dnf install -y perl-core make
+          sccache: "true"
+
+      - name: Smoke test a wheel
+        run: |
+          python -m pip install --force-reinstall dist/tdjson_rs-*.whl
+          python -c "import tdjson; print(tdjson.td_execute(b'{\"@type\":\"getOption\",\"name\":\"version\"}'))"
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: wheels-linux-${{ matrix.target }}
+          path: dist/*.whl
+
+  windows-build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+
+      - name: Install NASM (the vendored OpenSSL needs an assembler on MSVC; Perl ships with the runner)
+        run: |
+          choco install -y nasm --no-progress
+          Add-Content $env:GITHUB_PATH "C:\Program Files\NASM"
+
+      - name: Build wheels
+        uses: PyO3/maturin-action@v1
+        with:
+          target: x86_64-pc-windows-msvc
+          args: --release --out dist --find-interpreter
+          sccache: "true"
+
+      - name: Smoke test a wheel
+        shell: bash
+        run: |
+          python -m pip install --force-reinstall dist/tdjson_rs-*.whl
+          python -c "import tdjson; print(tdjson.td_execute(b'{\"@type\":\"getOption\",\"name\":\"version\"}'))"
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: wheels-windows
+          path: dist/*.whl
+
+  macos-build:
+    runs-on: macos-latest
+    env:
+      MACOSX_DEPLOYMENT_TARGET: "11.0"
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+
+      - name: Build wheels
+        uses: PyO3/maturin-action@v1
+        with:
+          target: aarch64-apple-darwin
+          args: --release --out dist --find-interpreter
+          sccache: "true"
+
+      - name: Smoke test a wheel
+        run: |
+          python -m pip install --force-reinstall dist/tdjson_rs-*.whl
+          python -c "import tdjson; print(tdjson.td_execute(b'{\"@type\":\"getOption\",\"name\":\"version\"}'))"
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: wheels-macos
+          path: dist/*.whl
+
+  publish:
+    needs: [linux-build, windows-build, macos-build]
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: wheels-*
+          merge-multiple: true
+          path: dist
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

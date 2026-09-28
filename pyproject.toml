@@ -1,0 +1,49 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "tdjson-rs"
+version = "1.8.67"
+description = "High-performance Python bindings for TDLib rewritten in pure Rust (PyO3): the td-rs implementation compiled straight into the extension — no shared library, no separate TDLib build"
+readme = "README.md"
+authors = [{ name = "td-rs" }]
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+keywords = [
+    "tdlib",
+    "telegram",
+    "tdlib-binding",
+    "python-binding",
+    "rust",
+    "pyo3",
+    "native",
+    "tdjson",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Programming Language :: Rust",
+    "Topic :: Communications",
+    "Topic :: Communications :: Chat",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+]
+
+[project.urls]
+Source = "https://github.com/td-rs/tdjson-rs"
+Tracker = "https://github.com/td-rs/tdjson-rs/issues"
+
+[tool.maturin]
+python-source = "python"
+module-name = "tdjson.tdjson_ext"
+features = ["pyo3/extension-module"]

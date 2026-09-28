@@ -1,0 +1,39 @@
+# tdjson-rs — pure-Rust Python bindings for TDLib's JSON interface.
+#
+# The PyO3 extension compiles the td-rs Rust implementation directly in
+# (no C++ TDLib, no libtdjson.so and no separate TDLib build). The td-rs
+# sources come from the pinned upstream commit below; for local development
+# against a sibling checkout, see the [patch] example at the bottom.
+
+[package]
+name = "tdjson-rs"
+# Tracks the TDLib release the backend pins (tdclient::option_manager::API_VERSION),
+# like the original's version scheme.
+version = "1.8.67"
+edition = "2024"
+license = "MIT"
+description = "Pure-Rust Python bindings for TDLib's JSON interface — the td-rs implementation compiled directly into the extension"
+publish = false # wheels, not crates.io
+
+[lib]
+name = "tdjson_ext"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.29", features = ["extension-module"] }
+tdclient = { git = "https://github.com/td-rs/td", rev = "24ce3dbe34e4aa418f703a9a088f55d92130af23" }
+tdutils = { git = "https://github.com/td-rs/td", rev = "24ce3dbe34e4aa418f703a9a088f55d92130af23" }
+
+[profile.release]
+# The original builds its nanobind module with LTO; the wheels follow.
+lto = true
+codegen-units = 1
+strip = "debuginfo"
+
+# Local development against a sibling td-rs checkout (overrides the pinned
+# git sources above; upstream libsqlite3-sys builds natively, so the vendored
+# wasm-only fork in td-rs needs no [patch.crates-io] here):
+#
+# [patch."https://github.com/td-rs/td"]
+# tdclient = { path = "../td-rs/crates/tdclient" }
+# tdutils = { path = "../td-rs/crates/tdutils" }
