@@ -34,7 +34,9 @@ jobs:
         with:
           target: ${{ matrix.target }}
           args: --release --out dist --find-interpreter
-          manylinux: "2_28"
+          # manylinux2014 (glibc 2.17) — the oldest floor the Rust toolchain and
+          # Python 3.10+ can target; the same distro floor as the original project.
+          manylinux: "2_17"
           # perl + make feed the vendored OpenSSL/SQLCipher inside td-rs (cc ships in the image)
           before-script-linux: |
             yum install -y perl-core make || dnf install -y perl-core make

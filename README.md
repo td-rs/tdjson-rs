@@ -14,10 +14,12 @@ The backend is [td-rs](https://github.com/td-rs/td) — the Rust implementation 
 
 The extension builds wherever td-rs builds:
 
-- **Linux** (`x64`, `ARM64`)
-- **Windows** (`x64`)
-- **macOS** (`x86_64`, `M-series`)
+- **Linux** (`x64`, `ARM64`) — glibc 2.17+ (manylinux2014 wheels): RHEL/CentOS 7+, Debian 8+, Ubuntu 13.10+, Fedora 19+
+- **Windows** (`x64`) — Windows 7+
+- **macOS** (`M-series`) — macOS 11+
 - Python **3.10+**
+
+Linux systems older than glibc 2.17 (CentOS 6 / RHEL 6 era) cannot be supported: the Rust toolchain and Python 3.10+ itself both require glibc 2.17 there, the same floor as the original project and TDLib's own wheels.
 
 ## Installation
 
