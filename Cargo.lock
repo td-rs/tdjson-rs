@@ -1709,7 +1709,7 @@ checksum = "adb6935a6f5c20170eeceb1a3835a49e12e19d792f6dd344ccc76a985ca5a6ca"
 [[package]]
 name = "tdactor"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=24ce3dbe34e4aa418f703a9a088f55d92130af23#24ce3dbe34e4aa418f703a9a088f55d92130af23"
+source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
 dependencies = [
  "tdutils",
  "tokio",
@@ -1718,7 +1718,7 @@ dependencies = [
 [[package]]
 name = "tdclient"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=24ce3dbe34e4aa418f703a9a088f55d92130af23#24ce3dbe34e4aa418f703a9a088f55d92130af23"
+source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
 dependencies = [
  "base64 0.22.1",
  "libc",
@@ -1737,7 +1737,7 @@ dependencies = [
 [[package]]
 name = "tddb"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=24ce3dbe34e4aa418f703a9a088f55d92130af23#24ce3dbe34e4aa418f703a9a088f55d92130af23"
+source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
 dependencies = [
  "crc32fast",
  "libc",
@@ -1758,7 +1758,7 @@ dependencies = [
 [[package]]
 name = "tdmtproto"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=24ce3dbe34e4aa418f703a9a088f55d92130af23#24ce3dbe34e4aa418f703a9a088f55d92130af23"
+source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
 dependencies = [
  "base64 0.22.1",
  "tdnet",
@@ -1770,7 +1770,7 @@ dependencies = [
 [[package]]
 name = "tdnet"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=24ce3dbe34e4aa418f703a9a088f55d92130af23#24ce3dbe34e4aa418f703a9a088f55d92130af23"
+source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
 dependencies = [
  "parking_lot",
  "reqwest",
@@ -1784,12 +1784,12 @@ dependencies = [
 [[package]]
 name = "tdtl"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=24ce3dbe34e4aa418f703a9a088f55d92130af23#24ce3dbe34e4aa418f703a9a088f55d92130af23"
+source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
 
 [[package]]
 name = "tdutils"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=24ce3dbe34e4aa418f703a9a088f55d92130af23#24ce3dbe34e4aa418f703a9a088f55d92130af23"
+source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
 dependencies = [
  "aes",
  "base64 0.22.1",
@@ -1855,7 +1855,7 @@ checksum = "fd3ca314f692efd6c868f8408f53fe444634a845f96c028b97d35f6a1f79f0ee"
 [[package]]
 name = "tl-codegen"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=24ce3dbe34e4aa418f703a9a088f55d92130af23#24ce3dbe34e4aa418f703a9a088f55d92130af23"
+source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
 dependencies = [
  "tdtl",
 ]
