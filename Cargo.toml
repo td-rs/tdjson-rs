@@ -21,8 +21,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = { version = "0.29", features = ["extension-module"] }
-tdclient = { git = "https://github.com/td-rs/td", rev = "6c36e61a35454a2e6ca94850546973cd0ec5b9f2" }
-tdutils = { git = "https://github.com/td-rs/td", rev = "6c36e61a35454a2e6ca94850546973cd0ec5b9f2" }
+tdclient = { git = "https://github.com/td-rs/td", rev = "331907b8f9e81faffcb09c188281152edc839d26" }
+tdutils = { git = "https://github.com/td-rs/td", rev = "331907b8f9e81faffcb09c188281152edc839d26" }
 
 [profile.release]
 # The original builds its nanobind module with LTO; the wheels follow.
@@ -35,4 +35,5 @@ strip = "debuginfo"
 # wasm-only fork in td-rs needs no [patch.crates-io] here):
 #
 #
+
 
