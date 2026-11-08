@@ -1709,7 +1709,7 @@ checksum = "adb6935a6f5c20170eeceb1a3835a49e12e19d792f6dd344ccc76a985ca5a6ca"
 [[package]]
 name = "tdactor"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
+source = "git+https://github.com/td-rs/td?rev=6c36e61a35454a2e6ca94850546973cd0ec5b9f2#6c36e61a35454a2e6ca94850546973cd0ec5b9f2"
 dependencies = [
  "tdutils",
  "tokio",
@@ -1718,7 +1718,7 @@ dependencies = [
 [[package]]
 name = "tdclient"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
+source = "git+https://github.com/td-rs/td?rev=6c36e61a35454a2e6ca94850546973cd0ec5b9f2#6c36e61a35454a2e6ca94850546973cd0ec5b9f2"
 dependencies = [
  "base64 0.22.1",
  "libc",
@@ -1737,7 +1737,7 @@ dependencies = [
 [[package]]
 name = "tddb"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
+source = "git+https://github.com/td-rs/td?rev=6c36e61a35454a2e6ca94850546973cd0ec5b9f2#6c36e61a35454a2e6ca94850546973cd0ec5b9f2"
 dependencies = [
  "crc32fast",
  "libc",
@@ -1749,7 +1749,7 @@ dependencies = [
 [[package]]
 name = "tde2e"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
+source = "git+https://github.com/td-rs/td?rev=6c36e61a35454a2e6ca94850546973cd0ec5b9f2#6c36e61a35454a2e6ca94850546973cd0ec5b9f2"
 dependencies = [
  "tdutils",
 ]
@@ -1766,7 +1766,7 @@ dependencies = [
 [[package]]
 name = "tdmtproto"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
+source = "git+https://github.com/td-rs/td?rev=6c36e61a35454a2e6ca94850546973cd0ec5b9f2#6c36e61a35454a2e6ca94850546973cd0ec5b9f2"
 dependencies = [
  "base64 0.22.1",
  "tdnet",
@@ -1777,7 +1777,7 @@ dependencies = [
 [[package]]
 name = "tdnet"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
+source = "git+https://github.com/td-rs/td?rev=6c36e61a35454a2e6ca94850546973cd0ec5b9f2#6c36e61a35454a2e6ca94850546973cd0ec5b9f2"
 dependencies = [
  "parking_lot",
  "reqwest",
@@ -1791,7 +1791,7 @@ dependencies = [
 [[package]]
 name = "tdutils"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
+source = "git+https://github.com/td-rs/td?rev=6c36e61a35454a2e6ca94850546973cd0ec5b9f2#6c36e61a35454a2e6ca94850546973cd0ec5b9f2"
 dependencies = [
  "aes",
  "base64 0.22.1",

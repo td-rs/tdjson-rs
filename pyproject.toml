@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "tdjson-rs"
-version = "1.8.67"
+version = "1.8.68"
 description = "High-performance Python bindings for TDLib rewritten in pure Rust (PyO3): the td-rs implementation compiled straight into the extension — no shared library, no separate TDLib build"
 readme = "README.md"
 authors = [{ name = "td-rs" }]

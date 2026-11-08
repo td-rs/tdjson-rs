@@ -13,7 +13,7 @@ import pytest
 
 import tdjson
 
-API_VERSION = "1.8.67"
+API_VERSION = "1.8.68"
 
 
 def encode(request):
