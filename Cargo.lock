@@ -1709,7 +1709,7 @@ checksum = "adb6935a6f5c20170eeceb1a3835a49e12e19d792f6dd344ccc76a985ca5a6ca"
 [[package]]
 name = "tdactor"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
+source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
 dependencies = [
  "tdutils",
  "tokio",
@@ -1718,7 +1718,7 @@ dependencies = [
 [[package]]
 name = "tdclient"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
+source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
 dependencies = [
  "base64 0.22.1",
  "libc",
@@ -1726,10 +1726,10 @@ dependencies = [
  "serde",
  "tdactor",
  "tddb",
+ "tde2e",
  "tdmtproto",
  "tdnet",
  "tdutils",
- "tl-codegen",
  "tokio",
  "tracing",
 ]
@@ -1737,13 +1737,21 @@ dependencies = [
 [[package]]
 name = "tddb"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
+source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
 dependencies = [
  "crc32fast",
  "libc",
  "rusqlite",
  "tdutils",
  "tracing",
+]
+
+[[package]]
+name = "tde2e"
+version = "0.1.0"
+source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
+dependencies = [
+ "tdutils",
 ]
 
 [[package]]
@@ -1758,19 +1766,18 @@ dependencies = [
 [[package]]
 name = "tdmtproto"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
+source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
 dependencies = [
  "base64 0.22.1",
  "tdnet",
  "tdutils",
- "tl-codegen",
  "tokio",
 ]
 
 [[package]]
 name = "tdnet"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
+source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
 dependencies = [
  "parking_lot",
  "reqwest",
@@ -1782,14 +1789,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "tdtl"
-version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
-
-[[package]]
 name = "tdutils"
 version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
+source = "git+https://github.com/td-rs/td?rev=1d9b67a462a40d75040e185358029a40f91be0f7#1d9b67a462a40d75040e185358029a40f91be0f7"
 dependencies = [
  "aes",
  "base64 0.22.1",
@@ -1805,6 +1807,7 @@ dependencies = [
  "num-integer",
  "num-prime",
  "num-traits",
+ "openssl-sys",
  "pbkdf2",
  "pkcs8",
  "rand_core 0.6.4",
@@ -1851,14 +1854,6 @@ name = "tinyvec"
 version = "1.13.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fd3ca314f692efd6c868f8408f53fe444634a845f96c028b97d35f6a1f79f0ee"
-
-[[package]]
-name = "tl-codegen"
-version = "0.1.0"
-source = "git+https://github.com/td-rs/td?rev=ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff#ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff"
-dependencies = [
- "tdtl",
-]
 
 [[package]]
 name = "tokio"

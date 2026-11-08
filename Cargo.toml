@@ -21,8 +21,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = { version = "0.29", features = ["extension-module"] }
-tdclient = { git = "https://github.com/td-rs/td", rev = "ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff" }
-tdutils = { git = "https://github.com/td-rs/td", rev = "ecdb2563d1ae3a740920e37a3a70af6e3ff5c0ff" }
+tdclient = { git = "https://github.com/td-rs/td", rev = "1d9b67a462a40d75040e185358029a40f91be0f7" }
+tdutils = { git = "https://github.com/td-rs/td", rev = "1d9b67a462a40d75040e185358029a40f91be0f7" }
 
 [profile.release]
 # The original builds its nanobind module with LTO; the wheels follow.
